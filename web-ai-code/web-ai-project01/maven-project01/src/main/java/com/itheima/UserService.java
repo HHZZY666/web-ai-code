@@ -29,5 +29,4 @@ public class UserService {
         }
         return Integer.parseInt(idCard.substring(16,17)) % 2 == 1 ? "男" : "女";
     }
-
 }
