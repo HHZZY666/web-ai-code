@@ -9,7 +9,7 @@ public class UserServiceTest {
     public void testGetaAge(){
         UserService userService = new UserService();
         Integer age = userService.getAge("100000200010011011");
-        System.out.println(age);
+        System.out.println(age);   
     }
 
     @Test
