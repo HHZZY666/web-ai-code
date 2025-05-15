@@ -3,7 +3,11 @@ package org.example.controller;
 import org.example.pojo.User;
 import org.example.service.UserService;
 import org.example.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.FileNotFoundException;
@@ -12,10 +16,12 @@ import java.util.List;
 /**
  * 用户信息的Controller
  */
-@RestController
+@Controller
+@ResponseBody
 public class UserController {
 
-    private UserService userService = new UserServiceImpl();
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/list")
     public List<User> list() throws FileNotFoundException {
