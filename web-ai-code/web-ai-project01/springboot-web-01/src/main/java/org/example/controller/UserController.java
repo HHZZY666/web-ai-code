@@ -5,6 +5,8 @@ import cn.hutool.core.io.IoUtil;
 import org.example.pojo.User;
 import org.example.service.UserService;
 import org.example.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +27,8 @@ import java.util.stream.Collectors;
 @RestController
 public class UserController {
 
-    private UserService userService = new UserServiceImpl();
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/list")
     public List<User> list() throws FileNotFoundException {

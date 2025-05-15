@@ -1,18 +1,19 @@
 package org.example.service.impl;
 
 import org.example.dao.UserDao;
-import org.example.dao.impl.UserDaoImpl;
 import org.example.pojo.User;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@Primary
 @Component
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl2 implements UserService {
 
     @Autowired//应用程序运行时自动查询该类型bean对象并赋值给该成员变量
     private UserDao userDao;
@@ -33,7 +34,7 @@ public class UserServiceImpl implements UserService {
             String name = parts[3];
             Integer age = Integer.parseInt(parts[4]);
             LocalDateTime updateTime = LocalDateTime.parse(parts[5], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            return new User(id, username, password, name, age, updateTime);
+            return new User(id + 200, username, password, name, age, updateTime);
         }).toList();
 
         return userList;
