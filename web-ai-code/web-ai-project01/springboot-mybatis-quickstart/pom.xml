@@ -44,6 +44,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <!--<version>1.18.26</version>-->
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -61,7 +62,7 @@
 
     <build>
         <plugins>
-            <plugin>
+         <!--   <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -84,7 +85,7 @@
                         </exclude>
                     </excludes>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
