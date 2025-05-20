@@ -20,4 +20,25 @@ class SpringbootMybatisQuickstartApplicationTests {
         userList.forEach(System.out::println);
     }
 
+    @Test
+    public void testDeleteById() {
+        userMapper.deleteById(5);
+    }
+
+    @Test
+    public void testInsert() {
+        userMapper.insert(new User(null, "gaoyuanyuan", "666888", "高圆圆", 18));
+    }
+
+    @Test
+    public void testUpdate() {
+        userMapper.update(new User(1, "zhouyu", "666888", "周瑜", 20));
+    }
+
+    @Test
+    public void testSelectByUsernameAndPassword() {
+        User user = userMapper.findByUsernameAndPassword("zhouyu", "666888");
+        System.out.println(user);
+    }
+
 }
