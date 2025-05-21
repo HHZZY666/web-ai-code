@@ -1,0 +1,7 @@
+org\example\controller\DeptController.class
+org\example\pojo\Dept.class
+org\example\pojo\Result.class
+org\example\service\impl\DeptServiceImpl.class
+org\example\TliasWebManagementApplication.class
+org\example\mapper\DeptMapper.class
+org\example\service\DeptService.class
