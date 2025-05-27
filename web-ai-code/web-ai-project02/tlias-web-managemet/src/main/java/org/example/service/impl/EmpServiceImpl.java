@@ -2,15 +2,19 @@ package org.example.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.example.mapper.EmpExprMapper;
 import org.example.mapper.EmpMapper;
 import org.example.pojo.Emp;
+import org.example.pojo.EmpExpr;
 import org.example.pojo.EmpQueryParam;
 import org.example.pojo.PageResult;
 import org.example.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,6 +22,9 @@ public class EmpServiceImpl implements EmpService {
 
     @Autowired
     private EmpMapper empMapper;
+
+    @Autowired
+    private EmpExprMapper  empExprMapper;
 
     /**
      * 原始分页查询操作
@@ -39,8 +46,6 @@ public class EmpServiceImpl implements EmpService {
 
     /**
      * PageHelper分页查询操作
-     * @param page
-     * @param pageSize
      * @return
      */
     /*@Override
@@ -66,5 +71,23 @@ public class EmpServiceImpl implements EmpService {
         //3.解析结果并封装
         Page<Emp> p = (Page<Emp>) empList;
         return new PageResult<>(p.getTotal(),p.getResult());
+    }
+
+    @Override
+    public void save(Emp emp) {
+        //1.保存员工基本信息
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.insert(emp);
+
+        //2.保存员工工作经历信息
+        List<EmpExpr> exprList = emp.getExprList();
+        if (!CollectionUtils.isEmpty(exprList)){
+            //遍历集合，为empId赋值
+            exprList.forEach(empExpr -> {
+                empExpr.setEmpId(emp.getId());
+            });
+            empExprMapper.insertBatch(exprList);
+        }
     }
 }

@@ -17,6 +17,6 @@
           <if test="begin != null and end != null">
               and e.entry_date between #{begin} and #{end}
           </if>
-        </where> order by e.update_time desc
+        </where>order by e.update_time desc
     </select>
 </mapper>
