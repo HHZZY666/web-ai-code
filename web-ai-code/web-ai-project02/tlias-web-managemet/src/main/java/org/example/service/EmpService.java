@@ -19,5 +19,5 @@ public interface EmpService {
      * 新增员工信息
      * @param emp
      */
-    void save(Emp emp);
+    void save(Emp emp) throws Exception;
 }

@@ -45,7 +45,7 @@ public class EmpController {
      * @return
      */
     @PostMapping
-    public Result save(@RequestBody Emp emp){
+    public Result save(@RequestBody Emp emp) throws Exception {
         log.info("新增员工：{}",emp);
         empService.save(emp);
         return Result.success();
