@@ -27,3 +27,14 @@ public class Emp {
     //封装工作经历
     private List<EmpExpr> exprList;
 }
+
+
+
+
+
+
+
+
+
+
+
