@@ -34,6 +34,6 @@ logging:
 #阿里云OSS
 aliyun:
   oss:
-    endpoint: oss-cn-beijing.aliyuncs.com
+    endpoint: https://oss-cn-beijing.aliyuncs.com
     bucket-name: java-ai-study-itheima
     region: cn-beijing
