@@ -19,9 +19,12 @@ public class DemoFilter  implements Filter {
     //拦截到请求后执行，可执行多次
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        log.info( "拦截到了请求...");
+        log.info( "拦截到了请求...放行前");
         //放行
          filterChain.doFilter(servletRequest,servletResponse);
+
+        log.info( "拦截到了请求...放行后");
+
     }
 
     //销毁方法，web服务器关闭时执行，只执行一次
