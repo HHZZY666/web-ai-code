@@ -20,7 +20,7 @@ public class JwtTest {
 
         String jwt = Jwts.builder().signWith(SignatureAlgorithm.HS256, "aXRoZWltYQ==") //指定加密算法，密钥
                 .addClaims(dataMap) //添加自定义信息
-                .setExpiration(new Date( System.currentTimeMillis() + 3600 * 1000)) //设置过期时间
+                .setExpiration(new Date( System.currentTimeMillis() + 30 * 1000)) //设置过期时间
                 .compact(); //生成令牌
          System.out.println(jwt);
 
@@ -31,7 +31,7 @@ public class JwtTest {
      */
     @Test
     public void  testParseJwt() {
-        String token = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTc0ODY3ODc5Mn0.JS9PApRKNKSyLdI9z2RZG9Mk70v-eIhk1uEu_nqT2Hs";
+        String token = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTc0ODc0NTUxNX0.3cVRe036tqCmj7SzC19gFMUOeQdj4PrNx0sV4yQqFu4";
         Claims claims = Jwts.parser()
                 .setSigningKey("aXRoZWltYQ==")
                 .parseClaimsJws(token)
