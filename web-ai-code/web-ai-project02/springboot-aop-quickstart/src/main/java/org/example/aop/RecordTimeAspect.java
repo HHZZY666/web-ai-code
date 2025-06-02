@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-@Aspect
+//@Aspect
 public class RecordTimeAspect {
 
     @Around( "execution(* org.example.service.impl.*.*(..))")
