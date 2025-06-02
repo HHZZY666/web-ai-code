@@ -3,6 +3,7 @@ package org.example.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
+import org.example.anno.Log;
 import org.example.pojo.Dept;
 import org.example.pojo.Result;
 import org.example.service.DeptService;
@@ -50,6 +51,7 @@ public class DeptController {
         return Result.success();
     }*/
     //方式三：如果请求参数名与形参变量名相同，直接定义方法形参即可接收。（省略@RequestParam）
+    @Log
     @DeleteMapping
     public Result delete(Integer id ){
         //System.out.println("删除部门："+ id);
@@ -61,6 +63,7 @@ public class DeptController {
     /**
      * 新增部门
      */
+    @Log
     @PostMapping
     public Result add(@RequestBody Dept dept){
         //System.out.println("新增部门：" + dept);
@@ -88,6 +91,7 @@ public class DeptController {
     /**
      * 修改部门信息
      */
+    @Log
     @PutMapping
     public Result update(@RequestBody Dept dept){
         //System.out.println("修改部门：" + dept);
